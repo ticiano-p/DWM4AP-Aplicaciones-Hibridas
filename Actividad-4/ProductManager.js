@@ -5,7 +5,7 @@ class ProductManger{
     products = [];
     constructor(products=[]){
         this.products = products
-    }
+    } 
     randomID(){
         return crypto.randomUUID();
     }

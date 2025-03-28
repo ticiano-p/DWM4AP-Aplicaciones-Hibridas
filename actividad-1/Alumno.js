@@ -1,7 +1,7 @@
 class alumno {
     nombre= 'Ticiano'
     apellido= 'Piccino Pujol'
-    edad= 19
+    edad= 19 
     carrera= ' Diseño y programacion WEB'
     materias= ['Aplicaciones Híbridas']
   

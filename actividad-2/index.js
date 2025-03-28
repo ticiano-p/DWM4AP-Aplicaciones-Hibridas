@@ -3,7 +3,7 @@ const ProducManager = new ProductManger()
 
 ProducManager.addProduct({ id: 3031, name: 'Smartphone Samsung A54', category: 'Celulares', price: "$320.000" },
 
-    )
+    ) 
 let ProductosMostrar = ProducManager.getProducts();
 console.log( ProductosMostrar );
 id=6066
