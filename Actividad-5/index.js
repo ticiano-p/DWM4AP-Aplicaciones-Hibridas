@@ -19,7 +19,7 @@ app.get('/productos', async (request,response)=>{
     
     response.send(lista)
     })
-    
+
     app.get('/productos/:id', async (request,response)=>{
         const id = request.params.id; 
         const productid = await admin.getProductById(id); 
@@ -37,28 +37,6 @@ app.get('/productos', async (request,response)=>{
         const id = await admin.addProduct(produc)
         response.json({id})
         })
-
-    app.delete('/productos/:id', async (request, response) => {
-            const id = request.params.id;
-            const status = await admin.deletProductBid(id);
-            if (status) {
-                response.json( {msg: `Producto con el ID:${id} eliminado`} );
-            } else {
-                response.status(404).json({msg: `No se encontro el Producto con el id: ${id}`});
-            }
-        })
-
-    app.put('/productos/:id', async (request, response) => {
-            const id = request.params.id;
-            const produc = request.body;
-            const status = await admin.updateProductByid(id, produc );
-            
-            if ( status !== null) {
-                response.json( {msg: `Producto con el ID:${id} modificado`});
-            } else {
-                response.status(404).json({msg: `No se encontro el Producto con el id: ${id}`});
-            }
-        }) 
 
 
 app.listen(port,()=>{

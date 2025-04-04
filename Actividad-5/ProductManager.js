@@ -13,7 +13,6 @@ class ProductManger{
         await this.getProducts();
         product.id = this.randomID();
         this.products.push( product);
-        
         const data = JSON.stringify( this.products, null, 2);
         try {
             await fs.writeFile( path, data );
@@ -38,40 +37,6 @@ class ProductManger{
         return product ? product : {};
     }
 
-    async deletProductBid(id){
-       await this.getProducts();
-       const posision = this.products.findIndex(u=> u.id == id)
-       if (posision === -1) {
-        return null; 
-    }
-       this.products.splice(posision, 1)
-
-       const data = JSON.stringify( this.products, null, 2);
-        try {
-            await fs.writeFile( path, data );
-            return id;
-        } catch (error) {
-            console.error(error);
-        }
-
-    }
-
-    async updateProductByid(id, product){
-       await this.getProducts();
-       const posision = this.products.findIndex(u=> u.id == id)
-       if (posision === -1) {
-        return null; 
-    }
-       this.products[posision].name= product.name
-       this.products[posision].email= product.email
-       const data = JSON.stringify( this.products, null, 2);
-       try {
-            await fs.writeFile( path, data );
-            return id;
-           } catch (error) {
-            console.error(error);
-           }
-    }
 }
 
 
